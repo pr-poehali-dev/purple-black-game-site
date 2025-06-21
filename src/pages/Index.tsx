@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import GameCard from "@/components/GameCard";
 import WalletSection from "@/components/WalletSection";
+import DonutBackground from "@/components/DonutBackground";
 
 const Index = () => {
   const games = [
@@ -26,7 +27,8 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gaming-dark">
+    <div className="min-h-screen bg-gaming-dark relative">
+      <DonutBackground />
       <Header />
 
       <main>
