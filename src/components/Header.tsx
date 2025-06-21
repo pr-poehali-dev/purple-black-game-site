@@ -10,7 +10,7 @@ const Header = () => {
             <span className="text-xl">🍩</span>
           </div>
           <span className="text-2xl font-bold bg-gradient-to-r from-gaming-purple to-gaming-pink bg-clip-text text-transparent">
-            DonutBet
+            DONUTBET
           </span>
         </div>
 
