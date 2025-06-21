@@ -16,7 +16,7 @@ const HeroSection = () => {
         <div className="mb-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-4">
             <span className="bg-gradient-to-r from-gaming-purple via-gaming-pink to-gaming-purple bg-clip-text text-transparent animate-pulse-glow">
-              Выигрывай
+              Побеждай с нами каждый день
             </span>
             <br />
             <span className="text-white">каждый день!</span>
