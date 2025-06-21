@@ -48,8 +48,8 @@ const DiceGame = ({ onClose }: DiceGameProps) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 game-modal">
-      <div className="bg-gaming-card border border-gaming-border rounded-xl p-6 max-w-md w-full">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 max-w-md w-full">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
             <span className="text-2xl">🎲</span>
@@ -72,7 +72,7 @@ const DiceGame = ({ onClose }: DiceGameProps) => {
             type="number"
             value={bet}
             onChange={(e) => setBet(Number(e.target.value))}
-            className="w-full bg-gaming-dark border border-gaming-border rounded-lg px-3 py-2 text-white"
+            className="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
             min="10"
             max="10000"
             disabled={isRolling}
@@ -90,8 +90,8 @@ const DiceGame = ({ onClose }: DiceGameProps) => {
               disabled={isRolling}
               className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all ${
                 direction === "over"
-                  ? "bg-gaming-purple text-white"
-                  : "bg-gaming-dark border border-gaming-border text-muted-foreground"
+                  ? "bg-purple-600 text-white"
+                  : "bg-gray-800 border border-gray-600 text-gray-300 hover:bg-gray-700"
               }`}
             >
               Больше
@@ -101,8 +101,8 @@ const DiceGame = ({ onClose }: DiceGameProps) => {
               disabled={isRolling}
               className={`flex-1 py-2 px-4 rounded-lg font-medium transition-all ${
                 direction === "under"
-                  ? "bg-gaming-purple text-white"
-                  : "bg-gaming-dark border border-gaming-border text-muted-foreground"
+                  ? "bg-purple-600 text-white"
+                  : "bg-gray-800 border border-gray-600 text-gray-300 hover:bg-gray-700"
               }`}
             >
               Меньше
@@ -125,18 +125,18 @@ const DiceGame = ({ onClose }: DiceGameProps) => {
             value={prediction}
             onChange={(e) => setPrediction(Number(e.target.value))}
             disabled={isRolling}
-            className="w-full"
+            className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
           />
         </div>
 
         {/* Результат броска */}
         <div className="mb-6 text-center">
-          <div className="w-24 h-24 mx-auto bg-gaming-dark border-2 border-gaming-border rounded-xl flex items-center justify-center mb-4">
+          <div className="w-24 h-24 mx-auto bg-gray-800 border-2 border-gray-600 rounded-xl flex items-center justify-center mb-4">
             {isRolling ? (
               <Icon
                 name="Dice6"
                 size={32}
-                className="text-gaming-purple animate-spin"
+                className="text-purple-500 animate-spin"
               />
             ) : result !== null ? (
               <span
@@ -162,18 +162,18 @@ const DiceGame = ({ onClose }: DiceGameProps) => {
 
         {/* Статистика */}
         <div className="grid grid-cols-3 gap-4 mb-6 text-center text-sm">
-          <div className="bg-gaming-dark rounded-lg p-3">
-            <div className="text-muted-foreground">Шанс</div>
+          <div className="bg-gray-800 rounded-lg p-3">
+            <div className="text-gray-400">Шанс</div>
             <div className="text-white font-bold">{getWinChance()}%</div>
           </div>
-          <div className="bg-gaming-dark rounded-lg p-3">
-            <div className="text-muted-foreground">Множитель</div>
-            <div className="text-gaming-purple font-bold">
+          <div className="bg-gray-800 rounded-lg p-3">
+            <div className="text-gray-400">Множитель</div>
+            <div className="text-purple-400 font-bold">
               {getMultiplier().toFixed(2)}x
             </div>
           </div>
-          <div className="bg-gaming-dark rounded-lg p-3">
-            <div className="text-muted-foreground">Выигрыш</div>
+          <div className="bg-gray-800 rounded-lg p-3">
+            <div className="text-gray-400">Выигрыш</div>
             <div className="text-white font-bold">
               ₽{(bet * getMultiplier()).toFixed(2)}
             </div>
@@ -184,7 +184,7 @@ const DiceGame = ({ onClose }: DiceGameProps) => {
         <button
           onClick={rollDice}
           disabled={isRolling}
-          className="w-full button-primary py-3 rounded-lg font-bold text-white disabled:opacity-50"
+          className="w-full bg-purple-600 hover:bg-purple-700 py-3 rounded-lg font-bold text-white disabled:opacity-50 transition-colors"
         >
           {isRolling ? "Бросаем..." : "Бросить кубик"}
         </button>

@@ -28,13 +28,13 @@ const HeroSection = () => {
         <div className="mb-12">
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-none">
             <span className="block bg-gradient-to-r from-gaming-purple via-gaming-pink to-purple-400 bg-clip-text text-transparent animate-scale-in">
-              DONUT
+              ПОБЕЖДАЙ
             </span>
             <span
               className="block bg-gradient-to-r from-gaming-pink via-yellow-400 to-gaming-purple bg-clip-text text-transparent animate-scale-in"
               style={{ animationDelay: "0.2s" }}
             >
-              BET
+              С НАМИ
             </span>
           </h1>
           <p

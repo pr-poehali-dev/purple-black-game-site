@@ -81,8 +81,8 @@ const MinesGame = ({ onClose }: MinesGameProps) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 game-modal">
-      <div className="bg-gaming-card border border-gaming-border rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
             <span className="text-2xl">💣</span>
@@ -107,7 +107,7 @@ const MinesGame = ({ onClose }: MinesGameProps) => {
                 type="number"
                 value={bet}
                 onChange={(e) => setBet(Number(e.target.value))}
-                className="w-full bg-gaming-dark border border-gaming-border rounded-lg px-3 py-2 text-white"
+                className="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
                 min="10"
                 max="10000"
               />
@@ -119,7 +119,7 @@ const MinesGame = ({ onClose }: MinesGameProps) => {
               <select
                 value={minesCount}
                 onChange={(e) => setMinesCount(Number(e.target.value))}
-                className="w-full bg-gaming-dark border border-gaming-border rounded-lg px-3 py-2 text-white"
+                className="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
               >
                 <option value={1}>1 мина</option>
                 <option value={3}>3 мины</option>
@@ -137,13 +137,13 @@ const MinesGame = ({ onClose }: MinesGameProps) => {
               key={index}
               onClick={() => clickCell(index)}
               disabled={!gameStarted || gameOver}
-              className={`aspect-square rounded-lg border-2 transition-all duration-200 ${
+              className={`aspect-square rounded-lg border-2 transition-all duration-200 flex items-center justify-center text-xl font-bold cursor-pointer ${
                 revealed[index]
                   ? mines.includes(index)
-                    ? "bg-red-500 border-red-400"
-                    : "bg-green-500 border-green-400"
-                  : "bg-gaming-dark border-gaming-border hover:border-gaming-purple"
-              }`}
+                    ? "bg-red-600 border-red-500 text-white"
+                    : "bg-green-600 border-green-500 text-white"
+                  : "bg-gray-700 border-gray-600 hover:border-purple-500 hover:bg-gray-600"
+              } ${!gameStarted || gameOver ? "cursor-not-allowed opacity-50" : ""}`}
             >
               {revealed[index] ? (
                 mines.includes(index) ? (
@@ -158,7 +158,7 @@ const MinesGame = ({ onClose }: MinesGameProps) => {
 
         {/* Статистика */}
         {gameStarted && (
-          <div className="flex justify-between items-center mb-4 p-4 bg-gaming-dark rounded-lg">
+          <div className="flex justify-between items-center mb-4 p-4 bg-gray-800 rounded-lg">
             <div className="text-center">
               <div className="text-sm text-muted-foreground">Алмазы</div>
               <div className="text-lg font-bold text-green-400">{gems}</div>
@@ -183,7 +183,7 @@ const MinesGame = ({ onClose }: MinesGameProps) => {
           {!gameStarted ? (
             <button
               onClick={startGame}
-              className="flex-1 button-primary py-3 rounded-lg font-bold text-white"
+              className="flex-1 bg-purple-600 hover:bg-purple-700 py-3 rounded-lg font-bold text-white transition-colors"
             >
               Начать игру
             </button>
@@ -192,7 +192,7 @@ const MinesGame = ({ onClose }: MinesGameProps) => {
               <button
                 onClick={cashOut}
                 disabled={gems === 0}
-                className="flex-1 bg-green-600 hover:bg-green-700 py-3 rounded-lg font-bold text-white disabled:opacity-50"
+                className="flex-1 bg-green-600 hover:bg-green-700 py-3 rounded-lg font-bold text-white disabled:opacity-50 transition-colors"
               >
                 Забрать ₽{(bet * multiplier).toFixed(2)}
               </button>
@@ -200,7 +200,7 @@ const MinesGame = ({ onClose }: MinesGameProps) => {
           ) : (
             <button
               onClick={resetGame}
-              className="flex-1 button-primary py-3 rounded-lg font-bold text-white"
+              className="flex-1 bg-purple-600 hover:bg-purple-700 py-3 rounded-lg font-bold text-white transition-colors"
             >
               {won
                 ? `Выиграно ₽${(bet * multiplier).toFixed(2)}! Играть снова`
