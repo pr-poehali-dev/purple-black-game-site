@@ -7,7 +7,7 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-gradient-to-r from-gaming-purple to-gaming-pink rounded-lg flex items-center justify-center">
-            <Icon name="Zap" size={20} className="text-white" />
+            <span className="text-xl">🍩</span>
           </div>
           <span className="text-2xl font-bold bg-gradient-to-r from-gaming-purple to-gaming-pink bg-clip-text text-transparent">
             DonutBet
