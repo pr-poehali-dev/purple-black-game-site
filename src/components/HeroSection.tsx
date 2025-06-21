@@ -16,10 +16,8 @@ const HeroSection = () => {
         <div className="mb-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-4">
             <span className="bg-gradient-to-r from-gaming-purple via-gaming-pink to-gaming-purple bg-clip-text text-transparent animate-pulse-glow">
-              Побеждай с нами каждый день
+              Побеждай с нами
             </span>
-            <br />
-            <span className="text-white">каждый день!</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Присоединяйся к тысячам игроков и получи бонус{" "}
