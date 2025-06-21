@@ -1,4 +1,7 @@
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import MinesGame from "./games/MinesGame";
+import DiceGame from "./games/DiceGame";
 
 interface GameCardProps {
   title: string;
@@ -17,6 +20,8 @@ const GameCard = ({
   players,
   gameType,
 }: GameCardProps) => {
+  const [gameOpen, setGameOpen] = useState(false);
+
   const getGameIcon = () => {
     return gameType === "mines" ? "Bomb" : "Dice6";
   };
@@ -57,7 +62,10 @@ const GameCard = ({
 
         {/* Action Buttons */}
         <div className="flex space-x-2 pt-2">
-          <button className="flex-1 button-primary py-3 rounded-lg font-medium text-white hover:scale-105 transition-all duration-300">
+          <button
+            onClick={() => setGameOpen(true)}
+            className="flex-1 button-primary py-3 rounded-lg font-medium text-white hover:scale-105 transition-all duration-300"
+          >
             <Icon name="Play" size={16} className="inline mr-2" />
             Играть
           </button>
@@ -66,6 +74,14 @@ const GameCard = ({
           </button>
         </div>
       </div>
+
+      {/* Game Modals */}
+      {gameOpen && gameType === "mines" && (
+        <MinesGame onClose={() => setGameOpen(false)} />
+      )}
+      {gameOpen && gameType === "dice" && (
+        <DiceGame onClose={() => setGameOpen(false)} />
+      )}
     </div>
   );
 };

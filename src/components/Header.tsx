@@ -10,7 +10,7 @@ const Header = () => {
             <Icon name="Zap" size={20} className="text-white" />
           </div>
           <span className="text-2xl font-bold bg-gradient-to-r from-gaming-purple to-gaming-pink bg-clip-text text-transparent">
-            GameHub
+            DonutBet
           </span>
         </div>
 
