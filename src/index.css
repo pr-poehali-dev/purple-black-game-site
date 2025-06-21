@@ -103,8 +103,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: -1;
   overflow: hidden;
@@ -112,10 +112,19 @@
 
 .donut-floating {
   position: absolute;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: linear-gradient(45deg, #ff6b6b, #feca57, #ff9ff3, #54a0ff);
-  animation: float 15s infinite linear;
-  opacity: 0.1;
+  background: conic-gradient(
+    from 0deg,
+    hsl(var(--gaming-purple)),
+    hsl(var(--gaming-pink)),
+    hsl(var(--gaming-purple))
+  );
+  animation:
+    float 8s ease-in-out infinite,
+    rotate3d 6s linear infinite;
+  opacity: 0.6;
 }
 
 .donut-floating::before {
@@ -123,74 +132,104 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 40%;
-  height: 40%;
-  background: transparent;
+  width: 24px;
+  height: 24px;
+  background: hsl(var(--gaming-dark));
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: inset 0 0 0 20px rgba(10, 11, 20, 0.8);
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.2),
+    inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.donut-floating::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  z-index: -1;
+  filter: blur(8px);
 }
 
 .donut-floating:nth-child(1) {
-  width: 120px;
-  height: 120px;
   top: 20%;
   left: 10%;
-  animation-duration: 20s;
   animation-delay: 0s;
+  transform: scale(1.2);
 }
 
 .donut-floating:nth-child(2) {
-  width: 80px;
-  height: 80px;
   top: 60%;
-  left: 80%;
-  animation-duration: 25s;
-  animation-delay: -5s;
+  right: 15%;
+  animation-delay: -2s;
+  transform: scale(0.8);
 }
 
 .donut-floating:nth-child(3) {
-  width: 100px;
-  height: 100px;
-  top: 80%;
+  bottom: 30%;
   left: 20%;
-  animation-duration: 18s;
-  animation-delay: -10s;
+  animation-delay: -4s;
+  transform: scale(1.5);
 }
 
 .donut-floating:nth-child(4) {
-  width: 90px;
-  height: 90px;
-  top: 10%;
-  left: 70%;
-  animation-duration: 22s;
-  animation-delay: -15s;
+  top: 40%;
+  right: 40%;
+  animation-delay: -6s;
+  transform: scale(0.9);
 }
 
 .donut-floating:nth-child(5) {
-  width: 110px;
-  height: 110px;
-  top: 40%;
-  left: 50%;
-  animation-duration: 28s;
+  bottom: 20%;
+  right: 25%;
   animation-delay: -8s;
+  transform: scale(1.1);
 }
 
 @keyframes float {
-  0% {
-    transform: rotate(0deg) translateY(0px) scale(1);
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotateX(0deg) rotateY(0deg);
   }
   25% {
-    transform: rotate(90deg) translateY(-20px) scale(1.1);
+    transform: translateY(-20px) translateX(10px) rotateX(15deg) rotateY(90deg);
   }
   50% {
-    transform: rotate(180deg) translateY(0px) scale(0.9);
+    transform: translateY(-10px) translateX(-15px) rotateX(30deg)
+      rotateY(180deg);
   }
   75% {
-    transform: rotate(270deg) translateY(20px) scale(1.05);
+    transform: translateY(-25px) translateX(5px) rotateX(45deg) rotateY(270deg);
+  }
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
   100% {
-    transform: rotate(360deg) translateY(0px) scale(1);
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+/* Responsive donuts */
+@media (max-width: 768px) {
+  .donut-floating {
+    width: 40px;
+    height: 40px;
+  }
+
+  .donut-floating::before {
+    width: 16px;
+    height: 16px;
   }
 }
 
