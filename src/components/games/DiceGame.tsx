@@ -52,7 +52,7 @@ const DiceGame = ({ onClose }: DiceGameProps) => {
       <div className="bg-gaming-card border border-gaming-border rounded-xl p-6 max-w-md w-full">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-            <span className="text-2xl">🍩</span>
+            <span className="text-2xl">🎲</span>
             Dice
           </h2>
           <button

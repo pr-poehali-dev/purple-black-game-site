@@ -85,7 +85,7 @@ const MinesGame = ({ onClose }: MinesGameProps) => {
       <div className="bg-gaming-card border border-gaming-border rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-            <span className="text-2xl">🍩</span>
+            <span className="text-2xl">💣</span>
             Mines
           </h2>
           <button
@@ -147,9 +147,9 @@ const MinesGame = ({ onClose }: MinesGameProps) => {
             >
               {revealed[index] ? (
                 mines.includes(index) ? (
-                  <Icon name="Bomb" size={20} className="text-white mx-auto" />
+                  <span className="text-2xl">💣</span>
                 ) : (
-                  <Icon name="Gem" size={20} className="text-white mx-auto" />
+                  <span className="text-2xl">💎</span>
                 )
               ) : null}
             </button>
